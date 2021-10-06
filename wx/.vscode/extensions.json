@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "christian-kohler.path-intellisense",
+    "vscode-icons-team.vscode-icons",
+    "dbaeumer.vscode-eslint",
+    "qiu8310.minapp-vscode",
+    "seancheung.wxapp-helper"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "[typescriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": false,
+      "source.organizeImports": false
+    }
+  },
+  "[xml]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": false,
+      "source.organizeImports": false
+    }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "files.encoding": "utf8",
+  "files.associations": {
+    "*.ts.template": "typescriptreact",
+    "*.html.template": "xml"
+  },
+  "search.exclude": {
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "src/**/*.js": true
+  },
+  "wxapp-helper.namingConvention": "spinalcase",
+  "wxapp-helper.component.typescript": true,
+  "wxapp-helper.component.name": "index",
+  "wxapp-helper.component.json": "{\n  \"component\": true\n}",
+  "wxapp-helper.component.script": "Component({\n  data: {},\n  properties: {},\n  methods: {}\n});\n",
+  "wxapp-helper.component.wxml": "<view class=\"container\">\n  <slot></slot>\n</view>",
+  "wxapp-helper.page.typescript": true,
+  "wxapp-helper.page.json": "{\n  \"navigationBarTitleText\": \"标题\",\n  \"usingComponents\": {}\n}\n",
+  "wxapp-helper.page.wxml": "<view class=\"container\">\n  <view class=\"page-body\">\n    <slot></slot>\n  </view>\n</view>",
+  "wxapp-helper.page.name": "index",
+  "wxapp-helper.page.script": "Page({\n  data: {}\n});\n",
+  "cSpell.words": ["miniprogram", "vant", "weapp", "wechat"]
+}
