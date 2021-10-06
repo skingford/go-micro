@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="page-body">
+        <button bindtap="toPage" data-page="login">跳转登录</button>
+        <button bindtap="showAlert">显示弹框</button>
+        <van-cell title="设置" bindtap="toPage" data-page="../user/setting/index" />
+        <van-cell title="收藏" bindtap="toPage" data-page="../user/fav/index" />
+        <van-cell title="帮助中心" bindtap="toPage" data-page="../user/help/index" />
+        <van-cell title="签到" bindtap="toPage" data-page="../activities/sign/index" />
+        <van-cell title="收货地址" bindtap="toPage" data-page="../user/address/index" />
+        <van-toast id="van-toast" />
+    </view>
+</view>

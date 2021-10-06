@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="page-body">
+        <button bindtap="toPage" data-page="login" class="danger">跳转登录</button>
+        <button bindtap="toTabPage">切换TAB</button>
+        <button bindtap="showAlert">显示弹框</button>
+        <button bindtap="toPage" data-page="web-view">webWiew</button>
+        <button>{{updateDate}}</button>
+        测试npm tsc
+    </view>
+</view>

@@ -1,0 +1,4 @@
+<van-empty wx:if="{{!detail}}" description="{{empty}}" />
+<view wx:else class="content">
+  <parser html="{{detail.info}}" />
+</view>

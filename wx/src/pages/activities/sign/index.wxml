@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="page-body">
+    <van-calendar show-title="{{ false }}" poppable="{{ false }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" show-confirm="{{ false }}" />
+    <view class="zwqd-box">
+      <!-- <image bindtap="sign"></image> -->
+      <van-button round type="info" bindtap="sign">点击签到</van-button>
+    </view>
+  </view>
+</view>

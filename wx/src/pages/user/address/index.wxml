@@ -1,0 +1,14 @@
+<van-empty wx:if="{{ !items || items.length<1 }}" description="{{empty}}" />
+<view class="list" wx:for="{{items}}" wx:key="id">
+  <van-swipe-cell right-width="{{ 65 }}">
+    <van-cell-group>
+      <van-cell border="{{ false }}" title="{{item.linkMan}} {{item.mobile}}" label="{{item.address}}" bind:click="selectTap" data-id="{{item.id}}" />
+      <van-icon name="records" size="40rpx" bind:click="modify" data-id="{{item.id}}" />
+    </van-cell-group>
+    <view slot="right">删除</view>
+  </van-swipe-cell>
+</view>
+<view style="height:32rpx"></view>
+<view class="safe-bottom-box">
+  <van-button type="primary" icon="add-o" block bind:click="add">新增收货地址</van-button>
+</view>

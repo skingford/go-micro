@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./src",
+    "paths": {
+      "@util/*": ["./src/utils/*"],
+      "@util": ["./src/utils/index"],
+      "@config": ["./src/configs/index"]
+    }
+  },
+  "include": ["./**/*.js"]
+}

@@ -1,0 +1,7 @@
+/** XA-XV CSS Variables **/
+
+page {
+  --xv-color-danger: red;
+  /* 底部安全距离 */
+  --safe-area-inset-bottom: 30px;
+}

@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# wx related
+/wx/node_modules
+/wx/miniprogram_npm
+/wx/src/miniprogram_npm
+/wx/src/**/*.js
+/wx/dist

@@ -1,0 +1,4 @@
+<view>
+  <parser html="{{detail.content}}" />
+  {{id}}
+</view>

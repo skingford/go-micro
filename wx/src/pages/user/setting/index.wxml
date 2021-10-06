@@ -1,0 +1,4 @@
+<van-cell title="关于我们" is-link bindtap="toPage" data-page="../about/index" />
+<!-- <van-cell title="意见反馈" is-link url="/pages/my/feedback" /> -->
+<van-cell title="清除缓存" is-link bind:click="clearStorage" />
+<van-cell title="当前版本" value="{{version}}" />

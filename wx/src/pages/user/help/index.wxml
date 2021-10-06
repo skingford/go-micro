@@ -1,0 +1,9 @@
+<scroll-view class="left-menu" scroll-y="true" scroll-with-animation="true">
+  <van-sidebar bind:change="change">
+    <van-sidebar-item wx:for="{{items}}" wx:key="id" title="{{item.name}}" />
+  </van-sidebar>
+</scroll-view>
+<scroll-view class="right-articles" scroll-y="true">
+  <van-empty wx:if="{{!children||children.length<1}}" description="{{empty}}" />
+  <van-cell wx:for="{{children}}" wx:key="id" title="{{item.title}}" bindtap="toPage" data-page="./detail?id={{item.id}}" />
+</scroll-view>

@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="page-body">
+        <button open-type="getUserInfo" bindgetuserinfo="showAlert">Click me</button>
+        <van-button type="primary" bindtap="showAlert">登录</van-button>
+        <van-button type="danger">危险按钮</van-button>
+        <van-button loading type="primary" loading-type="spinner" />
+    </view>
+</view>
