@@ -1,0 +1,20 @@
+syntax = "proto3";
+package auth.v1;
+option go_package = "go-micro/auth/api/gen/v1;authpb";
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+  string code = 3;
+}
+
+
+message LoginResponse {
+  string access_token = 1;
+  int32 expires_in = 2;
+}
+
+
+service AuthService {
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
