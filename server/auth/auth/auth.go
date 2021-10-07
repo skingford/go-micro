@@ -1,7 +1,7 @@
 /*
  * @Author: kingford
  * @Date: 2021-10-07 18:54:16
- * @LastEditTime: 2021-10-07 21:29:47
+ * @LastEditTime: 2021-10-07 21:42:04
  */
 package auth
 
@@ -14,6 +14,7 @@ import (
 
 type Service struct {
 	Logger *zap.Logger
+	authpb.UnimplementedAuthServiceServer
 }
 
 func (s *Service) Login(c context.Context, req *authpb.LoginRequest) (*authpb.LoginResponse, error) {
