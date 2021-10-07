@@ -1,7 +1,7 @@
 /*
  * @Author: kingford
  * @Date: 2021-10-07 18:54:16
- * @LastEditTime: 2021-10-07 19:04:07
+ * @LastEditTime: 2021-10-07 21:29:47
  */
 package auth
 
@@ -13,10 +13,10 @@ import (
 )
 
 type Service struct {
-	Logger zap.Logger
+	Logger *zap.Logger
 }
 
-func (s *Service) Login(c context.Context, req *authpb.LoginRequest) (string, error) {
+func (s *Service) Login(c context.Context, req *authpb.LoginRequest) (*authpb.LoginResponse, error) {
 	s.Logger.Info("login", zap.String("code", req.Code))
-	return "", nil
+	return nil, nil
 }
