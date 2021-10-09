@@ -1,9 +1,18 @@
+/*
+ * @Author: kingford
+ * @Date: 2021-09-19 00:49:50
+ * @LastEditTime: 2021-10-09 23:31:25
+ */
 import dialogService from './dialog.service';
 
 export class HttpService {
   //#region data
   private dialogService = dialogService;
-  private header = { 'content-type': 'application/x-www-form-urlencoded' };
+  //
+  private header = {
+    //'content-type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/json;charset=UTF-8'
+  };
   //#endregion
 
   public async get(url: string, params?: any, loading = false): Promise<any> {
