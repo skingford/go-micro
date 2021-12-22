@@ -20,3 +20,7 @@
 /wx/src/miniprogram_npm
 /wx/src/**/*.js
 /wx/dist
+
+*.idea
+*.vscode
+*DS_Store
