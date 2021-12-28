@@ -12,10 +12,11 @@ func main() {
 	c := context.Background()
 
 	// "mongodb://user:password@localhost:27017".
-	mc, err := mongo.Connect(c,
+	mc, err := mongo.Connect(
+		c,
 		options.
 			Client().
-			ApplyURI("mongodb://root:123456@bcore.top:27017/admin?readPreference=primary&ssl=false"))
+			ApplyURI("mongodb://cool:123456@bcore.top:27017/coolcar?readPreference=primary&ssl=false"))
 	if err != nil {
 		panic(err)
 	}
@@ -24,9 +25,10 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
 	}(mc, c)
 
-	col := mc.Database("admin").Collection("account")
+	col := mc.Database("coolcar").Collection("account")
 	insertRows(c, col)
 }
 
