@@ -1,13 +1,13 @@
-/*
- * @Author: kingford
- * @Date: 2021-10-07 18:53:59
- * @LastEditTime: 2021-10-07 21:34:13
- */
 package main
 
 import (
+	"context"
 	authpb "go-micro/auth/api/gen/v1"
 	"go-micro/auth/auth"
+	"go-micro/auth/dao"
+	"go-micro/auth/wechat"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"net"
 
@@ -27,15 +27,30 @@ func main() {
 		log.Fatal("net.Listen error:", err)
 	}
 
-	s := grpc.NewServer()
+	// mongodb
+	c := context.Background()
+	mongoClient, err := mongo.Connect(
+		c,
+		options.Client().ApplyURI(
+			"mongodb://cool:123456@bcore.top:27017/coolcar?readPreference=primary&ssl=false",
+		),
+	)
+	if err != nil {
+		logger.Fatal("could not connect mongodb", zap.Error(err))
+	}
 
+	s := grpc.NewServer()
 	authpb.RegisterAuthServiceServer(
 		s,
 		&auth.Service{
+			OpenIDResolver: &wechat.Service{
+				AppID:     "",
+				AppSecret: "",
+			},
+			Mongo:  dao.NewMongo(mongoClient.Database("coolcar")),
 			Logger: logger,
 		},
 	)
-
 	err = s.Serve(lis)
 	logger.Fatal("s.Serve error:", zap.Error(err))
 }
