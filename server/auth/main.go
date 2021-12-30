@@ -44,8 +44,8 @@ func main() {
 		s,
 		&auth.Service{
 			OpenIDResolver: &wechat.Service{
-				AppID:     "",
-				AppSecret: "",
+				AppID:     "wx33b1e737d2068b8a",
+				AppSecret: "b1dd74d3895f1fdba37343548ddd07c6",
 			},
 			Mongo:  dao.NewMongo(mongoClient.Database("coolcar")),
 			Logger: logger,
