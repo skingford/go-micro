@@ -3,11 +3,13 @@ package dao
 import (
 	"context"
 	"fmt"
+	mgutil "go-micro/shared/mongo"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
+const openIDField = "open_id"
 
 type Mongo struct {
 	col *mongo.Collection
@@ -21,12 +23,10 @@ func NewMongo(db *mongo.Database) *Mongo {
 
 func (m *Mongo) ResolveAccountID(c context.Context, openID string) (string, error) {
 	res := m.col.FindOneAndUpdate(c, bson.M{
-		"open_id": openID,
-	}, bson.M{
-		"$set": bson.M{
-			"open_id": openID,
-		},
-	}, options.
+		openIDField: openID,
+	}, mgutil.Set(bson.M{
+		openIDField: openID,
+	}), options.
 		FindOneAndUpdate().
 		SetUpsert(true).
 		SetReturnDocument(options.After))
@@ -35,9 +35,7 @@ func (m *Mongo) ResolveAccountID(c context.Context, openID string) (string, erro
 		return "", fmt.Errorf("cannot FindOneAndUpdate: %v", err)
 	}
 
-	var row struct {
-		ID primitive.ObjectID `bson:"_id"`
-	}
+	var row mgutil.IDField
 	err := res.Decode(&row)
 	if err != nil {
 		return "", fmt.Errorf("cannot decode result: %v", err)
