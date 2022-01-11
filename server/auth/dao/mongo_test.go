@@ -2,35 +2,33 @@ package dao
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	mongotesting "go-micro/shared/mongo/testing"
+	"os"
 	"testing"
 )
 
 func TestMongo_ResolveAccountID(t *testing.T) {
 	c := context.Background()
-
-	mc, err := mongo.Connect(
-		c,
-		options.Client().ApplyURI(
-			"mongodb://cool:123456@bcore.top:27017/coolcar?readPreference=primary&ssl=false",
-		),
-	)
-
+	mc, err := mongotesting.NewClient(c)
 	if err != nil {
-		t.Fatalf("could not connect mongodb:%v", err)
+		t.Fatalf("cannot connect mongodb: %v", err)
 	}
 
 	m := NewMongo(mc.Database("coolcar"))
+
 	id, err := m.ResolveAccountID(c, "123")
 
 	if err != nil {
 		t.Errorf("failed to resolve account id for 123:%v", err)
 	} else {
-		want := "61c49706cf558d83addaba6e"
+		want := "61ddb902326cb9515740e088"
 		if id != want {
 			t.Errorf("resolve account id: want:%q,got:%q", want, id)
 		}
 	}
 
+}
+
+func TestMain(m *testing.M) {
+	os.Exit(mongotesting.RunWithMongoInDocker(m))
 }
